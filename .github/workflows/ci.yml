@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Autenticarse en el registry
         if: github.ref_type == 'tag'
-        uses: docker/login-action@2
+        uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -27,5 +27,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/franciscomoma/gymnasio/gymnasio:${{ github.ref_name }}
-            ghcr.io/franciscomoma/gymnasio/gymnasio:latest
+            ghcr.io/danielborjac/peluqueria/peluqueria:${{ github.ref_name }}
+            ghcr.io/danielborjac/peluqueria/peluqueria:latest
