@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Confirmación de Reserva {{ codigo_reserva }}</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f9f9f9;
+        padding: 40px 20px;
+        color: #333;
+      }
+      .contenedor {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .titulo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #000000;
+        margin-bottom: 10px;
+      }
+      .reserva {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      .resaltado {
+        color: #daa520;
+        font-weight: bold;
+      }
+      .footer {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #888888;
+        text-align: center;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 25px;
+        background-color: #daa520;
+        color: #000000;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenedor">
+      <div class="titulo">Confirmación de Reserva <span class="resaltado">{{ codigo_reserva }}</span></div>
+
+      <p class="reserva">
+        Hola <span class="resaltado">{{ usuario|default:''|capfirst }}</span>,
+      </p>
+
+      <p class="reserva">
+        Tu reserva <span class="resaltado">{{ codigo_reserva }}</span> ha sido
+        <b>confirmada</b> con éxito.
+      </p>
+      <p class="reserva">
+        Te esperamos el
+        <span class="resaltado">{{ dia_semana }} {{ fecha }}</span> a las
+        <span class="resaltado">{{ hora }}</span> hrs.
+      </p>
+      <p class="reserva">
+        Servicio reservado: <span class="resaltado">{{ servicio }}</span><br />
+        Profesional: <span class="resaltado">{{ especialista }}</span>
+      </p>
+
+      <div class="footer">
+        Gracias por confiar en D'Pelos<br />
+        © 2025 D'Pelos - Todos los derechos reservados
+      </div>
+    </div>
+  </body>
+</html>

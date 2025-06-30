@@ -1,0 +1,17 @@
+- name: Autenticarse en el registry
+  if: github.ref_type == 'tag'
+  uses: docker/login-action@2
+  with:
+    registry: ghcr.io
+    username: ${{ github.actor }}
+    password: ${{ secrets.GHCR_TOKEN }}
+
+- name: Construir imagen
+  if: github.ref_type == 'tag'
+  uses: docker/build-push-action@v4
+  with:
+    context: .
+    push: true
+    tags: |
+      ghcr.io/franciscomoma/gymnasio/gymnasio:${{ github.ref_name }}
+      ghcr.io/franciscomoma/gymnasio/gymnasio:latest
