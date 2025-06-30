@@ -2,6 +2,7 @@ docker-build:
   name: Docker Build and push
   runs-on: ubuntu-latest
   steps:
+    - uses: actions/checkout@v2
     - name: Autenticarse en el registry
       if: github.ref_type == 'tag'
       uses: docker/login-action@2
